@@ -1,35 +1,19 @@
-#explain workflow of the model by presentation
-#change the dimension of pixel of the window to the maximum screen pixels of your pc/laptop
-#change the turtle , background color
-#make attractive background
-# change the rules for border of the snake
-# change the rule of game so that if snake touch it's body still the game should not terminate.
-#change keys on keyboard. game should usee arrow keys for the snake
-# Also solve wonderful challenge given by Aryan.
-# Add another point where if the snake touches it lose 10 points
-# Change the font and its size
-#Have a happy homework day:)
-#--Vrushang
-
 import turtle
 import time
 import random
-from win32api import GetSystemMetrics
 
 delay = 0.1
-width = GetSystemMetrics(0)
-height = GetSystemMetrics(1)
+width = 200
+height = 200
 
 # Score
 score = 0
 high_score = 0
-results = open("Highest Game Scores.txt", "r+")
 
 # Set up the screen
 wn = turtle.Screen()
 wn.title("Snake Game by Pankti Patel")
 wn.bgcolor("pink")
-wn.bgpic('back 10.gif')
 wn.setup(width, height)
 wn.tracer(0) # Turns off the screen updates
 
@@ -59,7 +43,6 @@ food1.shape("circle")
 food1.color("aqua")
 food1.penup()
 food1.goto(0,-100)
-
 
 # Pen
 pen = turtle.Turtle()
