@@ -3,8 +3,8 @@ import time
 import random
 
 delay = 0.1
-width = 1000
-height = 700
+width = 1425
+height = 800
 
 # Score
 score = 0
@@ -12,7 +12,7 @@ high_score = 0
 
 # Set up the screen
 wn = turtle.Screen()
-wn.title("Snake Game by Pankti Patel")
+wn.title("Snake Game")
 wn.bgcolor("pink")
 wn.setup(width, height)
 wn.tracer(0) # Turns off the screen updates
@@ -20,8 +20,10 @@ wn.tracer(0) # Turns off the screen updates
 # Snake head
 head = turtle.Turtle()
 head.speed(0)
-head.shape("square")
-head.color("black")
+#head.shape("square")
+#head.color("black")
+wn.addshape("snake1.gif")
+head.shape("snake1.gif")
 head.penup()
 head.goto(0,0)
 head.direction = "stop"
@@ -29,8 +31,10 @@ head.direction = "stop"
 # Snake food
 food = turtle.Turtle()
 food.speed(0)
-food.shape("circle")
-food.color("orange")
+#food.shape("circle")
+#food.color("orange")
+wn.addshape("apple5.gif")
+food.shape("apple5.gif")
 food.penup()
 food.goto(0,100)
 
@@ -39,8 +43,10 @@ segments = []
 # Snake toxic food
 food1 = turtle.Turtle()
 food1.speed(0)
-food1.shape("circle")
-food1.color("aqua")
+#food1.shape("circle")
+#food1.color("aqua")
+wn.addshape("blueberry1.gif")
+food1.shape("blueberry1.gif")
 food1.penup()
 food1.goto(0,-100)
 
@@ -52,7 +58,7 @@ pen.color("blue")
 pen.penup()
 pen.hideturtle()
 pen.goto(0, 260)
-pen.write("Score: 0  High Score: 0", align="center", font=("Playfair Display", 30, "normal"))
+pen.write("Score: 0  High Score: 0", align="center", font=("Garamond", 40, "normal"))
 
 # Functions
 def go_up():
@@ -119,7 +125,7 @@ while True:
         delay = 0.1
 
         pen.clear()
-        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Merriweather", 30, "normal")) 
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Garamond", 40, "normal")) 
 
 
     # Check for a collision with the toxic food
@@ -133,7 +139,7 @@ while True:
         new_segment = turtle.Turtle()
         new_segment.speed(0)
         new_segment.shape("square")
-        new_segment.color("red")
+        new_segment.color("green")
         new_segment.penup()
         segments.append(new_segment)
 
@@ -147,7 +153,7 @@ while True:
             high_score = score
         
         pen.clear()
-        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Merriweather", 30, "normal"))
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Garamond", 40, "normal"))
 
         # Check for a collision with the food
     if head.distance(food1) < 20:
@@ -169,7 +175,7 @@ while True:
         score -= 10
         
         pen.clear()
-        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Merriweather", 30, "normal")) 
+        pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Garamond", 40, "normal")) 
 
 
 
@@ -188,7 +194,7 @@ while True:
     move()
 
     if high_score >= 100:
-        wn.bgcolor("orange")
+        wn.bgcolor("turquoise")
 
     if high_score >= 150:
         wn.bgcolor("yellow")
@@ -225,7 +231,7 @@ while True:
         
             # Update the score display
             pen.clear()
-            pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Courier", 24, "normal"))
+            pen.write("Score: {}  High Score: {}".format(score, high_score), align="center", font=("Garamond", 40, "normal"))
 
     time.sleep(delay)
 
